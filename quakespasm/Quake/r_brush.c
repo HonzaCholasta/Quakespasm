@@ -555,6 +555,8 @@ void R_DrawBrushModel (entity_t *e)
 		}
 	}
 
+	GL_PolygonOffset(OFFSET_BMODEL);
+
 	glPushMatrix ();
 	e->angles[0] = -e->angles[0];	// stupid quake bug
 	if (gl_zfix.value)
@@ -589,6 +591,8 @@ void R_DrawBrushModel (entity_t *e)
 	R_DrawTextureChains_Water (clmodel, e, chain_model);
 
 	glPopMatrix ();
+
+	GL_PolygonOffset(OFFSET_NONE);
 }
 
 /*
